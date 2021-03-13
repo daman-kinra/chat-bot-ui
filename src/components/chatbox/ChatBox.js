@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import bgimg from "./chatbot.jpg";
 import { CgClose } from "react-icons/cg";
 
@@ -18,6 +18,34 @@ function ChatBox() {
                 setAnsPopup(false);
               }}
             />
+
+            <ExtentedQuestion>
+              <h2>Question:</h2>
+              <p className="extented-ques">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci architecto optio, quam eligendi quisquam modi cum rem
+                praesentium inventore repellat eum. Eius veniam aliquam
+                provident delectus! Tempore nam ipsum tempora?
+              </p>
+            </ExtentedQuestion>
+            <ExtentedAnswer>
+              <h2>Answer:</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                asperiores itaque iure reiciendis temporibus iusto eius mollitia
+                nam doloribus ad natus totam explicabo, cupiditate nemo culpa
+                quidem veniam ipsa labore voluptates sint praesentium? Ipsum
+                odit, porro perspiciatis accusantium labore delectus doloremque
+                exercitationem? Numquam ipsam veniam accusantium voluptatum
+                exercitationem recusandae, in laboriosam dolorum eos saepe natus
+                iste magni, alias totam unde delectus culpa illo ratione officia
+                pariatur similique obcaecati impedit? Placeat doloribus officia
+                veniam necessitatibus. Voluptate ipsa rerum corporis et fuga
+                cupiditate numquam commodi consectetur minima id laborum, totam,
+                deserunt culpa. Hic molestias fuga praesentium iure quidem
+                repellat expedita architecto amet!
+              </p>
+            </ExtentedAnswer>
           </InnerPopup>
         </Popup>
       ) : (
@@ -31,7 +59,6 @@ function ChatBox() {
               key={pos}
               onClick={() => {
                 setAnsPopup(true);
-                console.log(pos);
               }}
             >
               <Ques>
@@ -43,7 +70,7 @@ function ChatBox() {
               </Ques>
               <Ans>
                 <h2>Answer: </h2>
-                <p>
+                <p className="ans">
                   {" "}
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Repellat cum assumenda quis illo dolorum accusamus
@@ -69,6 +96,40 @@ function ChatBox() {
   );
 }
 
+const ExtentedQuestion = styled.div`
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-right: 50px;
+  margin-top: 20px;
+  position: relative;
+  &:after {
+    position: absolute;
+    bottom: -5%;
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: gray;
+  }
+`;
+const ExtentedAnswer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+  padding-right: 50px;
+  margin-top: 40px;
+`;
+const openAnimation = keyframes`
+from{
+  opacity:0;
+  transform: scale(0,0);
+}
+to{
+  opacity:1;
+  transform:scale(1,1)
+}
+`;
+
 const InnerPopup = styled.div`
   position: relative;
   width: 85%;
@@ -79,6 +140,7 @@ const InnerPopup = styled.div`
   @media (max-width: 700px) {
     background-color: red;
   }
+  animation: ${openAnimation} 0.5s forwards;
 `;
 const Span = styled.span`
   position: absolute;
@@ -121,6 +183,7 @@ const Popup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: ${openAnimation} 0.2s forwards;
 `;
 const MainChatBoxCont = styled.div`
   height: calc(100vh - 10vh - 10vh);
@@ -163,7 +226,7 @@ const QNAbox = styled.div`
   flex-direction: column;
 
   &:hover {
-    transform: scaleX(1.04);
+    transform: scale(1.04, 1.04);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     background-color: rgba(255, 255, 255, 0.9);
   }

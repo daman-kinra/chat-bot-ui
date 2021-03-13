@@ -23,11 +23,12 @@ const MainInputCont = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid lightgray;
+  min-height: 80px;
 `;
 const InputField = styled.input`
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
   width: 70%;
-  min-height: 5vh;
+  height: 45px;
   outline: 0;
   border: none;
   border-radius: 5px;
@@ -53,7 +54,7 @@ const AskButton = styled.button`
   font-size: 20px;
   color: white;
   width: 20%;
-  height: 5.5vh;
+  height: 45px;
   transition: 0.3s ease;
   &:hover {
     background-color: #ffaec0;

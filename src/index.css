@@ -6,13 +6,16 @@
   font-family: "Nunito", sans-serif;
 }
 p {
-  font-weight: bold;
   margin-left: 20px;
+}
+.ans {
+  font-weight: bold;
   max-height: 46px;
   overflow: hidden;
 }
 .ques {
   max-height: 25px;
+  overflow: hidden;
 }
 h2 {
   font-size: 20px;
@@ -35,4 +38,19 @@ code {
   right: 1%;
   top: 2%;
   cursor: pointer;
+  z-index: 100;
+}
+.cross:hover {
+  animation: crossMove 0.4s ease;
+}
+@keyframes crossMove {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+.extented-ques {
+  font-weight: bold;
 }
